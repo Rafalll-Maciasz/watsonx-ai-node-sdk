@@ -27,8 +27,7 @@ const checkIfJobFinshed = async <T>(
     console.log(result.result);
     if (result.result.entity.status.state === 'completed') {
       return result as T;
-    }
-    if (result.result.entity.status.state === 'failed') {
+    } else if (result.result.entity.status.state === 'failed') {
       console.log(result.result.entity.status.failure.errors[0].message);
       throw new Error(
         `${getter.name} failed. Reason: ${result.result.entity.status.failure.errors[0].message}`
@@ -46,10 +45,11 @@ export const instructLabFlow = async () => {
     version: '2023-07-07',
   });
 
+  const path = 'experienced.pdf';
   const dataConnectionReferenceModel = {
     type: 'container',
     location: {
-      path: 'experienced.pdf',
+      path,
     },
   };
   // ObjectLocationGithub

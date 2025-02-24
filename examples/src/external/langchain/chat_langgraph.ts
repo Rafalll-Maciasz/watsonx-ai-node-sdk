@@ -21,7 +21,7 @@ export const chatWithLanggraph = async () => {
     watsonxAIApikey: process.env.WATSONX_AI_APIKEY,
     watsonxAIAuthType: 'iam',
     version: '2024-05-31',
-    model: 'mistralai/mistral-large',
+    model: 'meta-llama/llama-3-1-70b-instruct',
   });
   const storage = [
     { id: 1, name: 'Apple', category: 'fruit' },

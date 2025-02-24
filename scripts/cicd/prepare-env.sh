@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPTS_DIR="$(dirname "$0")"
-source "${SCRIPTS_DIR}/common.sh"
+source "${SCRIPTS_DIR}/utils.sh"
 
 if [[ -z "$JAVA_HOME" ]] ; then
     echo "JAVA_HOME environment variable could not be found..."

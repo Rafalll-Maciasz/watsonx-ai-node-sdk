@@ -1,19 +1,16 @@
 #!/bin/bash
 
-set -xe
+set -euo
 
-SCRIPTS_DIR="$(dirname "$0")"
+source scripts/utils.sh
 
-# Switch branches
-GITHUB_URL=$(git config --get remote.origin.url | sed 's|https://||g' | sed 's|.git||g')
-git remote set-url origin "https://${GH_USER}:${GH_TOKEN}@${GITHUB_URL}.git"
-git stash
-git fetch
+setup-git enterprise
 
 # Prepare NPM registry config
-"${SCRIPTS_DIR}/prepare-npm-config.sh"
+scripts/prepare-npm-config.sh
 
 # Publish SDK
+TAG="$(jq -r '.version' package.json)"
 git checkout "${TAG}"
 
 set +x

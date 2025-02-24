@@ -16,6 +16,8 @@ git clone "https://${GH_USER}:${GH_TOKEN}@${GH_URL}.git" "${PUBLIC_REPO_DIR}"
 # Clear all files in public repo 
 cd "${PUBLIC_REPO_DIR}"
 
+setup-git public
+
 git checkout main
 TRACKED_FILES_TO_DELETE=$(git ls-files)
 echo "${TRACKED_FILES_TO_DELETE}" | xargs rm -f     # Use echo and then rm for easier debugging 
@@ -36,7 +38,6 @@ if [[ -z "${TAG}" ]] ; then
     exit 1
 fi
 
-setup-git public
 git config -l
 git status
 git add --all
@@ -45,7 +46,7 @@ git push -u origin main
 
 # Documentation branch
 # Clear all files in public repo 
-cd "${PUBLIC_REPO_DIR}"
+# cd "${PUBLIC_REPO_DIR}"
 
 git checkout gh-pages
 TRACKED_FILES_TO_DELETE=$(git ls-files)
@@ -63,7 +64,7 @@ cd "${PUBLIC_REPO_DIR}"
 git status
 git add --all
 git commit -m "release: ${TAG}"
-git push
+git push -u origin gh-pages
 
 # Create git tag in public GitHub repository
 cd "${PUBLIC_REPO_DIR}"
