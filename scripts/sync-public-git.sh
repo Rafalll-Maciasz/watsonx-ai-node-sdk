@@ -45,9 +45,7 @@ git commit -m "release: ${TAG}"
 git push -u origin main
 
 # Documentation branch
-# Clear all files in public repo 
-# cd "${PUBLIC_REPO_DIR}"
-
+# Clear all files in public repo
 git checkout gh-pages
 TRACKED_FILES_TO_DELETE=$(git ls-files)
 echo "${TRACKED_FILES_TO_DELETE}" | xargs rm -f     # Use echo and then rm for easier debugging 
@@ -67,6 +65,5 @@ git commit -m "release: ${TAG}"
 git push -u origin gh-pages
 
 # Create git tag in public GitHub repository
-cd "${PUBLIC_REPO_DIR}"
 git tag "${TAG}"
 git push origin tag "${TAG}"
