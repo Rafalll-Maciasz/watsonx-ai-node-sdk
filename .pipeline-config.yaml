@@ -250,8 +250,6 @@ tasks:
         runAfter:
           - code-checks
           - deploy-checks
-        include:
-          - docker-socket
         image: icr.io/continuous-delivery/pipeline/pipeline-base-ubi:3.46
         script: |
           #!/usr/bin/env bash
