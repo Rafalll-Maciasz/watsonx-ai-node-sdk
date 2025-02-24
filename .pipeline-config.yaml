@@ -245,7 +245,7 @@ tasks:
 
   deploy-release:
     steps:
-      - name: release
+      - name: run-stage
         displayName: "Release"
         runAfter:
           - code-checks
