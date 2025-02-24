@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo
+set -euox
 
 source scripts/utils.sh
 
