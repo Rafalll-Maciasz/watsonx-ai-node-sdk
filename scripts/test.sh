@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -euo
+set -euo pipefail
 
 NODE_VERSION=""
+TEST_SUITE=""
 
 while [[ $# -gt 0 ]]; do
     case ${1} in
@@ -43,7 +44,7 @@ case "${TEST_SUITE}" in
         npm run test-examples
         ;;
     --*)
-        echo "Unknown option ${1}"
+        echo "Unknown test suite (--test-suite) value: ${TEST_SUITE}, should be one of: [unit, integration, regression, examples]"
         exit 1
         ;;
 esac

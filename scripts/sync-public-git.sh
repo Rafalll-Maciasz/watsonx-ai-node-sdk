@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euox
+set -euo pipefail
 
 source scripts/utils.sh
 
@@ -38,7 +38,6 @@ if [[ -z "${TAG}" ]] ; then
     exit 1
 fi
 
-git config -l
 git status
 git add --all
 git commit -m "release: ${TAG}"

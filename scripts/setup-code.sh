@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo
+set -euo pipefail
 
 NODE_VERSION=""
 GENERATOR_VERSION=""

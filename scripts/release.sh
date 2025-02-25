@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo
+set -euo pipefail
 
 TAG="$(jq -r '.version' package.json)"
 RELEASE_PAYLOAD="$(cat <<EOF

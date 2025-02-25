@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euox
+set -euo pipefail
 
 source scripts/utils.sh
 
@@ -44,5 +44,5 @@ sed -i "s|https://v3.travis.ibm.com/WML/watsonx-ai-node-sdk|https://app.travis-c
 
 git status
 git add --all
-git commit -m "Documentation generated at ${GENERATION_TIMESTAMP} - build_${BUILD_NUMBER}"
+git commit -m "Documentation generated at ${GENERATION_TIMESTAMP}"
 git push
